@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Konen Portfolio</title>
+    <script src="js/component.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/focus@3.x.x/dist/cdn.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header x-data="navbar">
+        <div class="navbar">
+            <div class="navbar-title">Addy Konen</div>
+            <hamburger-icon @click="toggle"></hamburger-icon>
+            <ul class="navbar-links">
+                <template x-for="link in links">
+                    <li class="navbar-link">
+                        <a :href="link.to" x-text="link.text"></a>
+                    </li>
+                </template>
+            </ul>
+        </div>
+        <div class="navbar-links-phone" x-show="navOpen">
+            <template x-for="link in links">
+                <li class="navbar-link">
+                    <a :href="link.to" x-text="link.text" @click="toggle"></a>
+                </li>
+            </template>
+        </div>
+    </header>
+
+    <section id="home" class="container-center">
+        <h1 class="title">Hello World, Iam Addy Konen👋</h1>
+        <div class="sub-title">Fullstack Web Developer</div>
+        <button class="btn btn-primary">About Me</button>
+    </section>
+    <section id="about" class="container" x-data="about">
+        <h1 class="content-title">About Me</h1>
+        <div class="left-right-content">
+            <template x-for="about in abouts">
+                <div>
+                    <div class="card about-card">
+                        <img :src="about.image.src" class="about-image card-image" :alt="about.image.alt">
+                    </div>
+                    <div>
+                        <h4 x-text="about.title"></h4>
+                        <div class="divider"></div>
+                        <p x-text="about.text"></p>
+                    </div>
+                </div>
+            </template>
+        </div>
+    </section>
+    <section id="projects" class="container" x-data="projects">
+        <h1 class="content-title">Projects</h1>
+        <div class="projects">
+            <template x-for="project in projects">
+                <div class="card card-image">
+                    <img :src="project.image.src" class="img-fluid card-image" :alt="project.image.alt">
+                    <p class="card-title" x-text="project.title"></p>
+                    <button class="btn btn-primary">Detail Project</button>
+                    <template x-if="project.isOpenSource">
+                        <div class="bottom-content">
+                            <a :href="project.githubLink" class="button-link" target="_blank" rel="noopener noreferrer">
+                                <github-icon></github-icon>
+                            </a>
+                            <template x-if="project.webLink">
+                                <a :href="project.webLink" target="_blank" rel="noopener noreferrer">
+                                    <web-icon></web-icon>
+                                </a>
+                            </template>
+                        </div>                    
+                    </template>
+                </div>
+            </template>
+        </div>
+    </section>
+    <section id="contact" class="container-center" x-data="contact">
+        <h1 class="title">Let's Work Together</h1>
+        <p class="sub-title">Build Something Amaizing Together</p>
+        <whatsapp-icon />
+        <div class="icons">
+            <template x-for="social in contact">
+                <p class="icon-with-name">
+                    <a href="" class="button-link" x-html="social.icon"></a>
+                    <a href="" class="button-link" x-text="social.text"></a>
+                </p>
+            </template>
+        </div>
+    </section>
+    <script src="js/data.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
