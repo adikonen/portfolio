@@ -4,6 +4,7 @@
     --primary: rgb(116, 28, 171);
     --primary-darker: hsl(277, 73%, 32%);
     --secondary: hsl(288, 13%, 92%);
+    --max-width:1280px;
     scroll-behavior: smooth;
     box-sizing: border-box;
 }
@@ -15,17 +16,37 @@ body {
     background-color: #fafafa;
 }
 
-.navbar {
+.to-top {
     position: fixed;
+    bottom:1rem;
+    right:1rem;
+    border-radius: 10rem;
+    padding:0.5rem 0.6rem;
+    z-index: 10;
+}
+
+.navbar-wrapper {
+    position: relative;
+    right: 0;
+    left: 0;
+    top: 0;
+    background-color: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    padding: 1rem 3rem;
+}
+
+.navbar {
+    max-width: var(--max-width);
+    width: 100%;
+    margin: auto;
+    /* position: fixed;
     right:0;
     left:0;
-    top:0;
+    top:0; */
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 3rem;
-    background-color: white;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    z-index: 9;
 }
 
 .navbar-title {
@@ -40,11 +61,37 @@ body {
     list-style: none;
 }
 
+.navbar-link:hover {
+    background-color: #fafafa;
+} 
+
 .navbar-link a {
     color: black;
     text-decoration: none;
     display: block;
+    transition-duration: 0.5s;
+    transition-property: color;
+    transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
+
+.navbar-link a:hover {
+    color: var(--primary);
+}
+
+.navbar-links-phone {
+    display: none;
+    position: fixed;
+    left:0;
+    right:0;
+    padding:1rem;
+    overflow: hidden;
+    transition-duration: 1s;
+    list-style: none;
+    flex-direction: column;
+    gap: 1rem;
+    background-color: white;
+}
+
 
 hamburger-icon {
     cursor: pointer;
@@ -68,20 +115,6 @@ github-icon {
     color: initial
 }
 
-.navbar-links-phone {
-    display: none;
-    position: fixed;
-    top: 9%;
-    left:0;
-    right:0;
-    padding:1rem;
-    overflow: hidden;
-    transition-duration: 1s;
-    list-style: none;
-    flex-direction: column;
-    gap: 1rem;
-    background-color: white;
-}
 
 .title {
     margin: 0;
@@ -103,9 +136,20 @@ section:nth-child(odd) {
     background-color: var(--secondary);
 }
 
+.wrapper {
+    background-color: inherit;
+    max-width: var(--max-width);
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .text-primary {
     color: var(--primary-bolder);
     font-weight: bold;
+}
+
+.h-fit {
+    height: fit-content;
 }
 
 .container {
@@ -139,6 +183,8 @@ section:nth-child(odd) {
 }
 
 .card {
+    position: relative;
+    z-index: 1;
     padding:1rem;
     background-color: white;
     border-radius:0.4rem;
@@ -147,25 +193,30 @@ section:nth-child(odd) {
     flex-direction: column;
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
 }
+
+.card:hover {
+    transform: scale(1.02)
+}
+
 .card-title {
     text-align: center;
     color:var(--primary);
     font-weight: bold;
 }
-.bottom-content,.icons {
+.bottom-content {
     display: flex;
     justify-content:space-evenly;
     padding:0.5rem;
     gap:1rem;
 }
-
-.icons {
-    gap:2rem;
-}
 .icon-with-name {
     display: flex;
     gap:0.5rem;
     font-size: 22px;
+}
+
+.icon-with-name:hover {
+    transform: scale(1.05);
 }
 
 .img-fluid {
@@ -206,6 +257,12 @@ section:nth-child(odd) {
     grid-template-columns: repeat(3, 1fr);
     gap:1rem;
 }
+
+.icons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap:1rem;
+}
 .content-title {
     margin-bottom: 1rem;
     text-align: center;
@@ -223,7 +280,7 @@ section:nth-child(odd) {
     .navbar-links-phone {
         display: flex;
     }
-    .navbar {
+    .navbar-wrapper {
         padding: 0.8rem 2rem;
     }
     .contents {
@@ -235,21 +292,33 @@ section:nth-child(odd) {
     .about-image {
         width: 100%;
     }
-    .projects {
+    .projects{
         display: grid;
         grid-template-columns: repeat(1, 1fr);
         gap:1rem;
     }
     .icons {
-        flex-direction: column;
-        gap: 0;
-        justify-content: stretch;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .icon-with-name {
+        padding:0;
+    }
+    section#contact {
+        min-height: 50vh;
+        padding:2rem 1rem;
     }
 }
 
 /* medium */
 @media only screen and (min-width: 600px) and (max-width: 780px) {
-    .projects {
+    .projects  {
         grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/*hd full hd*/
+@media screen and (min-width:1300px) {
+    :root {
+        font-size: 20px;
     }
 }
