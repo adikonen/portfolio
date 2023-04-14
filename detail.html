@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/component.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/focus@3.x.x/dist/cdn.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body x-data="detail">
+    <header x-data="navbar">
+        <div class="navbar-wrapper">
+            <div class="navbar">
+                <div class="navbar-title">Addy Konen</div>
+                <hamburger-icon @click="toggle"></hamburger-icon>
+                <ul class="navbar-links">
+                    <template x-for="link in links">
+                        <li class="navbar-link">
+                            <a :href="link.to" x-text="link.text"></a>
+                        </li>
+                    </template>
+                </ul>
+            </div>
+        </div>
+        <div class="navbar-links-phone" x-show="navOpen">
+            <template x-for="link in links">
+                <li class="navbar-link">
+                    <a :href="link.to" x-text="link.text" @click="toggle"></a>
+                </li>
+            </template>
+        </div>
+    </header>
+    <section id="home" class="container-center" style="padding: 1rem;">
+       <h1 class="content-title">Detail Project</h1>
+       <div class="detail-card wrapper">
+           <div class="left-right-content">
+               <div>
+                   <div>
+                       <img :src="project.image.src" :alt="project.image.alt" width="500"/>
+                    </div>
+                    <div>
+                        <h2 x-text="project.title" class="text-primary">Helo</h2>
+                        <template x-if="project.isOpenSource">
+                            <span>Open Source</span>
+                        </template>
+                        <template x-if="!project.isOpenSource">
+                            <span>Closed Source</span>
+                        </template>
+                        <p x-text="project.description"></p>
+                        <span>Contributors</span>
+                        <ul>
+                            <li>Addy Konen</li>
+                            <li>Jaffran Tirta</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <script src="js/data.js"></script>
+    <script src="js/detail/data.js"></script>
+    <script src="js/detail/script.js"></script>
+</body>
+</html>
