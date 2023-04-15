@@ -64,9 +64,21 @@
     </section>
 
     <section id="projects" class="container" x-data="projects">
-        <div class="wrapper">
-            <h1 class="content-title">Projects</h1>
-            <div class="projects">
+        <div class="wrapper" x-data="{
+            currentTab: 'projects',
+            setTab(name) {
+                if (this.currentTab != name) {
+                    this.currentTab = name
+                }
+            }
+            
+        }">
+            <h1 class="content-title">
+                <span :class="currentTab == 'projects' ? 'text-primary' : 'cursor-pointer'" @click="setTab('projects')">Projects</span> 
+                / 
+                <span :class="currentTab != 'projects' ? 'text-primary': 'cursor-pointer'"@click="setTab('certificates')">Certificates</span>
+            </h1>
+            <div class="projects" x-show="currentTab == 'projects'">
                 <template x-for="project in projects">
                     <div class="card card-image">
                         <img :src="project.image.src" class="img-fluid card-image" :alt="project.image.alt">
@@ -89,6 +101,18 @@
                     </div>
                 </template>
             </div>
+            <div class="certificates" x-show="currentTab != 'projects'">
+                <template x-for="certificate in certificates">
+                    <div class="card">
+                        <img :src="certificate.image.src" :alt="certificate.image.alt" class="img-fluid">
+                        <div class="bottom-content">
+                            <a :href="certificate.pdfLink" class="button-link">
+                                <button class="btn btn-secondary">View PDF</button>
+                            </a>
+                        </div>
+                    </div>
+                </template>
+            </div>
         </div>
     </section>
     <section id="contact" class="container-center" x-data="contact">
@@ -107,7 +131,6 @@
     <section id="footer" class="container">
         <p class="content-title">Created with ❤️ By Konen</p>
     </section>
-    <script src="js/utils/Project.js"></script>
     <script src="js/data.js"></script>
     <script src="js/script.js"></script>
 </body>

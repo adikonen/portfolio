@@ -2,6 +2,7 @@ const links = getNavLinks();
 const abouts = getAbout();
 const projects = getProjects();
 const contact = getContact();
+const certificates = getCertificates();
 
 document.addEventListener('alpine:init', () => {
     Alpine.data('navbar', () => {
@@ -22,7 +23,8 @@ document.addEventListener('alpine:init', () => {
 
     Alpine.data('projects', () => {
         return {
-            projects
+            projects,
+            certificates
         };
     });
 

@@ -150,84 +150,47 @@ function getContact() {
     ];
 }
 
-function getURLParams() {
-    const params = new Proxy(new URLSearchParams(window.location.search), {
-        get: (searchParams, prop) => searchParams.get(prop),
-    });
+function getCertificates() {
+    const certificates = [
+        {
+            image : {
+                src: 'img/certificates/aws-dicoding.jpg',
+                alt: 'aws certificate dicoding',
+            },
+        },
+        {
+            image : {
+                src: 'img/certificates/basic-javascript-dicoding.jpg',
+                alt: 'basic javascript dicoding',
+            },
+        },
+        {
+            image : {
+                src: 'img/certificates/nodejs-backend-dicoding.jpg',
+                alt: 'nodejs backend dicoding',
+            },
+        },
+        {
+            image : {
+                src: 'img/certificates/basic-laravel-magangpedia.jpg',
+                alt: 'basic laravel magangpedia',
+            },
+        },
 
-    return params;
-}
-
-function getProjectBySlug(value = null) {
-    if (value == null) {
-        return null;
-    }
-    const rawprojects =  [
-        {
-            image: {
-                src: 'img/projects/ngantre-report-employee.png',
-                alt: 'management report web app',
-            },
-            title: 'Employee Report Management',
-            isOpenSource: false,
-            description: `This is My First Project using PHP and Laravel. Purpose of this project 
-            is help employee to reporting their daily report and their tasks.`,
-        },
-        {
-            image: {
-                src: 'img/projects/quizcuy.png',
-                alt: 'quiz web app',
-            },
-            title: 'Quizcuy',
-            isOpenSource: true,
-            githubLink: 'https://github.com/adikonen/quizcuy',
-        },
-        {
-            image: {
-                src: 'img/projects/rent-futsal.png',
-                alt: 'rent futsal field web app',
-            },
-            title: 'Futsalcuy',
-            isOpenSource: true,
-            githubLink: 'https://github.com/adikonen/sewalapanganfutsal',
-        },
-        {
-            image: {
-                src: 'img/projects/e-campuz-admin.png',
-                alt: 'universitas tabanan web app',
-            },
-            title: 'LMS Universitas Tabanan',
-            isOpenSource:false,
-        },
-        {
-            image: {
-                src: 'img/projects/spp.png',
-                alt: 'Invoice School',
-            },
-            title: 'Invoice School (SPP)',
-            isOpenSource: true,
-            githubLink: 'https://github.com/adikonen/sppkul',
-        },
-        {
-            image: {
-                src: 'img/projects/landing-page.png',
-                alt: 'landing page web design',
-            },
-            title: 'Landing Page Web Design',
-            isOpenSource: true,
-            githubLink: 'https://github.com/adikonen/mancap-bang',
-            webLink: 'https://mancap-bang.netlify.app'
-        },
     ];
 
-    // adding slug each project
-    const projects = rawprojects.map((item) => {
-        const slug = item.title.toLowerCase().split(' ').join('-');
-        return {...item, slug}
-    });
+    return certificates.map((item) => {
+        const arr = item.image.src.split('/');
+        const lastIndex = arr.length - 1;
+        // change img/ to pdf/
+        arr.shift();
+        arr.unshift('pdf');
 
-    const project = projects.find((item) => item.slug == value);
-
-    console.log(project);
-    return project;
+        // change .jpg to .pdf
+        arr[lastIndex] = arr[lastIndex].split('.').shift();
+        arr[lastIndex] = `${arr[lastIndex]}.pdf`;
+        
+        const pdfLink = arr.join('/');
+        return {...item, pdfLink}
+    })
 }
