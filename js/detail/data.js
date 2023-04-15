@@ -1,5 +1,3 @@
-// beter use fetch api
-
 function getURLParams() {
     const params = new Proxy(new URLSearchParams(window.location.search), {
         get: (searchParams, prop) => searchParams.get(prop),
@@ -8,7 +6,10 @@ function getURLParams() {
     return params;
 }
 
-function getProjectBySlug(value) {
+function getProjectBySlug(value = null) {
+    if (value == null) {
+        return null;
+    }
     const rawprojects =  [
         {
             image: {
@@ -17,24 +18,47 @@ function getProjectBySlug(value) {
             },
             title: 'Employee Report Management',
             isOpenSource: false,
+            description: `Employee Report Management is My First Project using PHP and Laravel. Purpose of this project 
+            is help employee to reporting their daily report and their tasks.`,
+            technologies: [
+                'Laravel 8',
+                'PHP',
+                'Bootstrap',
+                'Laravel Excel',
+                'MySQL',
+            ],
         },
         {
             image: {
                 src: 'img/projects/quizcuy.png',
                 alt: 'quiz web app',
             },
-            title: 'Quiz Game',
+            title: 'Quizcuy',
             isOpenSource: true,
             githubLink: 'https://github.com/adikonen/quizcuy',
+            description: `Quizcuy is quiz game web app. Admin able to create question and the user can answer the question, if the answer is false then user health will decrease. When user health below from one, system will force redirect user to shop page to refil his health.`,
+            technologies: [
+                'PHP',
+                'Bootstrap',
+                'MySQL',
+                'JQuery',
+            ],
         },
         {
             image: {
                 src: 'img/projects/rent-futsal.png',
                 alt: 'rent futsal field web app',
             },
-            title: 'Rent Futsal Field Web App',
+            title: 'Futsalcuy',
             isOpenSource: true,
             githubLink: 'https://github.com/adikonen/sewalapanganfutsal',
+            description: `Futsalcuy is rent management system. Admin able to set field is empty or full, set schedule futsal field. Verify book from user and doing some CRUD. The User able to see information about futsal fields and request booking to admin.`,
+            technologies: [
+                'Ruby On Rails',
+                'Ruby',
+                'Bootstrap',
+                'MySQL'
+            ],
         },
         {
             image: {
@@ -76,4 +100,3 @@ function getProjectBySlug(value) {
     console.log(project);
     return project;
 }
-

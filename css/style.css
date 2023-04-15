@@ -4,6 +4,7 @@
     --primary: rgb(116, 28, 171);
     --primary-darker: hsl(277, 73%, 32%);
     --secondary: hsl(288, 13%, 92%);
+    --secondary-darker: hsl(285, 4%, 78%);
     --max-width:1280px;
     scroll-behavior: smooth;
     box-sizing: border-box;
@@ -16,6 +17,9 @@ body {
     background-color: #fafafa;
 }
 
+.detail-title {
+    margin-bottom:0.5rem;
+}
 .to-top {
     position: fixed;
     bottom:1rem;
@@ -192,7 +196,15 @@ section:nth-child(odd) {
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
 }
 
+.detail-card-content {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(100px, 1fr));
+    column-gap: 2rem;
+}
 
+.detail-card-image {
+    align-self: center;
+}
 
 .card:hover {
     transform: scale(1.02)
@@ -274,6 +286,32 @@ section:nth-child(odd) {
     font-weight: bold;
 }
 
+.badge {
+    width: fit-content;
+    padding: 0.4rem;
+    border-radius: 100rem;
+    font-size: smaller;
+}
+
+.badge-primary {
+    background-color: var(--primary-soft-light);
+  
+}
+
+.badge-secondary, .btn-secondary {
+    background-color: var(--secondary);
+}
+
+.btn-secondary:hover {
+    background-color: var(--secondary-darker);
+}
+
+.technologies {
+    display: flex;
+    flex-wrap: wrap;
+    gap:0.4rem;
+    margin-top: 0.4rem;
+}
 /* small */
 @media only screen and (max-width: 600px) {
     hamburger-icon {
@@ -312,6 +350,9 @@ section:nth-child(odd) {
         min-height: 50vh;
         padding:2rem 1rem;
     }
+    .detail-card-content {
+        grid-template-columns: repeat(1,1fr);
+    }
 }
 
 /* medium */
@@ -325,5 +366,8 @@ section:nth-child(odd) {
 @media screen and (min-width:1300px) {
     :root {
         font-size: 20px;
+    }
+    .detail-card-content {
+        grid-template-columns: repeat(1,1fr);
     }
 }

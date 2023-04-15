@@ -33,30 +33,40 @@
             </template>
         </div>
     </header>
-    <section id="home" class="container-center" style="padding: 1rem;">
-       <h1 class="content-title">Detail Project</h1>
+    <section id="home" class="container">
+       <h1 class="content-title" style="margin-top: 4rem;">Detail Project</h1>
        <div class="detail-card wrapper">
-           <div class="left-right-content">
-               <div>
-                   <div>
-                       <img :src="project.image.src" :alt="project.image.alt" width="500"/>
-                    </div>
-                    <div>
-                        <h2 x-text="project.title" class="text-primary">Helo</h2>
-                        <template x-if="project.isOpenSource">
-                            <span>Open Source</span>
-                        </template>
-                        <template x-if="!project.isOpenSource">
-                            <span>Closed Source</span>
-                        </template>
-                        <p x-text="project.description"></p>
-                        <span>Contributors</span>
-                        <ul>
-                            <li>Addy Konen</li>
-                            <li>Jaffran Tirta</li>
-                        </ul>
-                    </div>
+           <div class="detail-card-content">
+               <!-- <div> -->
+                <div class="detail-card-image">
+                    <img :src="project.image.src" :alt="project.image.alt" class="img-fluid"/>
                 </div>
+                <div>
+                    <h2 x-text="project.title" class="detail-title"></h2>
+                    <template x-if="project.isOpenSource">
+                        <div class="badge badge-primary">Open Source</div>
+                    </template>
+                    <template x-if="!project.isOpenSource">
+                        <!-- <span>Closed Source</span>
+                            -->
+                        <div class="badge badge-secondary">Closed Source</div>
+
+                    </template>
+                    <p x-text="project.description"></p>
+                    <span>Technologies</span>
+                    <div class="technologies">
+                        <template x-for="tech in project.technologies">
+                            <div class="badge badge-secondary" x-text="tech"></div>
+                        </template>
+                    </div>
+                    <br />
+                    <template x-if="project.isOpenSource">
+                        <a :href="project.githubLink" class="button-link">
+                            <github-icon></github-icon>
+                        </a>
+                    </template>
+                </div>
+                <!-- </div> -->
             </div>
         </div>
     </section>

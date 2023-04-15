@@ -3,7 +3,6 @@ const abouts = getAbout();
 const projects = getProjects();
 const contact = getContact();
 
-
 document.addEventListener('alpine:init', () => {
     Alpine.data('navbar', () => {
         return {
