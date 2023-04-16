@@ -26,6 +26,7 @@ function getProjectBySlug(value = null) {
                 'Bootstrap',
                 'Laravel Excel',
                 'MySQL',
+                'Sweet Alert'
             ],
         },
         {
@@ -54,10 +55,10 @@ function getProjectBySlug(value = null) {
             githubLink: 'https://github.com/adikonen/sewalapanganfutsal',
             description: `Futsalcuy is rent management system. Admin able to set field is empty or full, set schedule futsal field. Verify book from user and doing some CRUD. The User able to see information about futsal fields and request booking to admin.`,
             technologies: [
-                'Ruby On Rails',
-                'Ruby',
+                'PHP',
                 'Bootstrap',
-                'MySQL'
+                'MySQL',
+                'Sweet Alert',
             ],
         },
         {
@@ -67,6 +68,18 @@ function getProjectBySlug(value = null) {
             },
             title: 'LMS Universitas Tabanan',
             isOpenSource:false,
+            description: `This is biggest project i've ever made. My Contribute on this project is building CRUD, Making Custom Class Helper for PHP GD Image Library, Help my senior build PMB Feature and more.`,
+            technologies: [
+                'Laravel',
+                'PHP',
+                'JQuery',
+                'Bootstrap',
+                'Rest API',
+                'Laravel Excel',
+                'PHP GDImage',
+                'Laravel DomPDF',
+                'Pest'
+            ],
         },
         {
             image: {
@@ -76,6 +89,16 @@ function getProjectBySlug(value = null) {
             title: 'Invoice School (SPP)',
             isOpenSource: true,
             githubLink: 'https://github.com/adikonen/sppkul',
+            description: `This project is my competency exam project (UKK). The transaction is 
+            made for face to face not online transaction. While student pay his SPP, then staff 
+            simply search the student in system then set new transaction by clicking button 
+            lunaskan.`,
+            technologies: [
+                'PHP',
+                'MySQL',
+                'Bootstrap',
+                'JQuery'
+            ],
         },
         {
             image: {
@@ -84,6 +107,13 @@ function getProjectBySlug(value = null) {
             },
             title: 'Landing Page Web Design',
             isOpenSource: true,
+            description: 'Purpose of this project is learning vue and tailwindcss. Toggle dark mode with tailwind, learn using vue composition api and typescript.',
+            technologies: [
+                'Vue',
+                'Tailwind',
+                'Pinia',
+                'Typescript'
+            ],
             githubLink: 'https://github.com/adikonen/mancap-bang',
             webLink: 'https://mancap-bang.netlify.app'
         },
