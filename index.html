@@ -83,21 +83,21 @@
                     <div class="card card-image">
                         <img :src="project.image.src" class="img-fluid card-image" :alt="project.image.alt">
                         <p class="card-title" x-text="project.title"></p>
-                            <a :href="project.detailLink" class="button-link">
-                                <button class="btn btn-primary">Detail Project</button>
-                            </a>
-                        <template x-if="project.isOpenSource">
-                            <div class="bottom-content">
+                        <a :href="project.detailLink" class="button-link">
+                            <button class="btn btn-primary">Detail Project</button>
+                        </a>
+                        <div class="bottom-content">
+                            <template x-if="project.isOpenSource">
                                 <a :href="project.githubLink" class="button-link" target="_blank" rel="noopener noreferrer" title="view source code">
                                     <github-icon></github-icon>
                                 </a>
-                                <template x-if="project.webLink">
-                                    <a :href="project.webLink" target="_blank" rel="noopener noreferrer" title="visit website">
-                                        <web-icon></web-icon>
-                                    </a>
-                                </template>
-                            </div>                    
-                        </template>
+                            </template>
+                            <template x-if="project.webLink">
+                                <a :href="project.webLink" target="_blank" rel="noopener noreferrer" title="visit website">
+                                    <web-icon></web-icon>
+                                </a>
+                            </template>
+                        </div>                    
                     </div>
                 </template>
             </div>
@@ -106,8 +106,8 @@
                     <div class="card">
                         <img :src="certificate.image.src" :alt="certificate.image.alt" class="img-fluid">
                         <div class="bottom-content">
-                            <a :href="certificate.pdfLink" target="_blank" rel="noopener noreferrer" class="button-link">
-                                <button class="btn btn-secondary">View PDF</button>
+                            <a :href="certificate.link" target="_blank" rel="noopener noreferrer" class="button-link">
+                                <button class="btn btn-secondary">View Certificate</button>
                             </a>
                         </div>
                     </div>
@@ -132,6 +132,7 @@
         <p class="content-title">Created with ❤️ By Konen</p>
     </section>
     <script src="js/data.js"></script>
-    <script src="js/script.js"></script>
+    <script src="js/index/data.js"></script>
+    <script src="js/index/script.js"></script>
 </body>
 </html>

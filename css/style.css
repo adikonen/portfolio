@@ -189,6 +189,8 @@ section:nth-child(odd) {
     text-align: justify;
     margin-bottom: 1.4rem;
     flex-direction: row;
+    align-items: center;
+
 }
 
 .card, .detail-card {
@@ -211,6 +213,11 @@ section:nth-child(odd) {
 
 .detail-card-image {
     align-self: center;
+}
+
+.detail-icons {
+    display: flex;
+    gap:1rem;
 }
 
 .card:hover {
@@ -273,7 +280,7 @@ section:nth-child(odd) {
 }
 
 .about-image {
-    width:300px;
+    width: 230px;
 }
 
 .projects, .certificates {
@@ -317,6 +324,10 @@ section:nth-child(odd) {
     flex-wrap: wrap;
     gap:0.4rem;
     margin-top: 0.4rem;
+}
+
+.bi:hover {
+    transform: scale(1.15);
 }
 /* small */
 @media only screen and (max-width: 600px) {

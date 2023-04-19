@@ -60,11 +60,21 @@
                         </template>
                     </div>
                     <br />
-                    <template x-if="project.isOpenSource">
-                        <a :href="project.githubLink" class="button-link">
-                            <github-icon></github-icon>
+                    <div class="detail-icons">
+                        <a href="index.html" class="button-link">
+                            <home-icon></home-icon>
                         </a>
-                    </template>
+                        <template x-if="project.isOpenSource">
+                            <a :href="project.githubLink" class="button-link">
+                                <github-icon></github-icon>
+                            </a>
+                        </template>
+                        <template x-if="project.webLink">
+                            <a :href="project.webLink" class="button-link">
+                                <web-icon></web-icon>
+                            </a>
+                        </template>
+                    </div>
                 </div>
                 <!-- </div> -->
             </div>

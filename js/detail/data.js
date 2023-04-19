@@ -2,10 +2,11 @@ function getURLParams() {
     const params = new Proxy(new URLSearchParams(window.location.search), {
         get: (searchParams, prop) => searchParams.get(prop),
     });
-
+    
     return params;
 }
 
+// better to use fetch api
 function getProjectBySlug(value = null) {
     if (value == null) {
         return null;
@@ -89,6 +90,7 @@ function getProjectBySlug(value = null) {
             title: 'Invoice School (SPP)',
             isOpenSource: true,
             githubLink: 'https://github.com/adikonen/sppkul',
+            webLink: 'https://sppkonen.000webhostapp.com/',
             description: `This project is my competency exam project (UKK). The transaction is 
             made for face to face not online transaction. While student pay his SPP, then staff 
             simply search the student in system then set new transaction by clicking button 
