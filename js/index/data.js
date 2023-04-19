@@ -72,9 +72,9 @@ function getProjects() {
                 src: 'img/projects/e-campuz-admin.png',
                 alt: 'universitas tabanan web app',
             },
+            webLink: 'https://portal.universitastabanan.ac.id/',
             title: 'LMS Universitas Tabanan',
             isOpenSource:false,
-            webLink: 'https://portal.universitastabanan.ac.id/'
         },
         {
             image: {

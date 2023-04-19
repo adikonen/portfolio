@@ -81,6 +81,8 @@ function getProjectBySlug(value = null) {
                 'Laravel DomPDF',
                 'Pest'
             ],
+            webLink: 'https://portal.universitastabanan.ac.id/'
+
         },
         {
             image: {
