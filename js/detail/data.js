@@ -67,7 +67,7 @@ function getProjectBySlug(value = null) {
                 src: 'img/projects/e-campuz-admin.png',
                 alt: 'universitas tabanan web app',
             },
-            title: 'LMS Universitas Tabanan',
+            title: 'SIAK Universitas Tabanan',
             isOpenSource:false,
             description: `This is biggest project i've ever made. My Contribute on this project is building CRUD, Making Custom Class Helper for PHP GD Image Library, Help my senior build PMB Feature and more.`,
             technologies: [

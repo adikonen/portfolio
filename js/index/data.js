@@ -34,14 +34,6 @@ function getAbout() {
             Learning Management System. From that i learned, using external library make work me
             faster and easier.`,
         },
-        // {
-        //     title: 'Need teamwork',
-        //     image: {
-        //         src: 'img/about/work-together.webp',
-        //         alt: 'hands'
-        //     },
-        //     text: `I am convinced that the success of a project depends on the ability of each team member to complement each other. I always try to understand each person's roles and responsibilities and contribute according to my expertise.`
-        // }
     ];
 }
 
@@ -70,10 +62,10 @@ function getProjects() {
         {
             image: {
                 src: 'img/projects/e-campuz-admin.png',
-                alt: 'universitas tabanan web app',
+                alt: 'SIAK universitas tabanan',
             },
             webLink: 'https://portal.universitastabanan.ac.id/',
-            title: 'LMS Universitas Tabanan',
+            title: 'SIAK Universitas Tabanan',
             isOpenSource:false,
         },
         {

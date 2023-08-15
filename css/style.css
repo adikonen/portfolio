@@ -218,6 +218,18 @@ section:nth-child(odd) {
 .detail-icons {
     display: flex;
     gap:1rem;
+    flex-direction: column;
+}
+
+.icon-with-text:hover {
+    background-color: var(--secondary-darker);
+}
+
+.icon-with-text {
+    display: flex;
+    align-items: center; 
+    gap: 0.4rem;
+    padding: 0.2rem;
 }
 
 .card:hover {
@@ -372,6 +384,7 @@ section:nth-child(odd) {
     }
 }
 
+
 /* medium */
 @media only screen and (min-width: 600px) and (max-width: 780px) {
     .projects, .certificates  {
@@ -380,12 +393,20 @@ section:nth-child(odd) {
     .detail-card-content {
         grid-template-columns: repeat(1,1fr);
     }
+    .detail-icons {
+        display: inline-flex;
+        flex-direction: row;
+    }
 }
 
 /*hd full hd*/
-@media screen and (min-width:1300px) {
+@media screen and (min-width:780px) {
     :root {
         font-size: 20px;
+    }
+    .detail-icons {
+        display: inline-flex;
+        flex-direction: row;
     }
    
 }
