@@ -14,7 +14,7 @@
     <header x-data="navbar">
         <div class="navbar-wrapper">
             <div class="navbar">
-                <div class="navbar-title">Addy Konen</div>
+                <a href="index.html" class="navbar-title">Addy Konen</a>
                 <hamburger-icon @click="toggle"></hamburger-icon>
                 <ul class="navbar-links">
                     <template x-for="link in links">
@@ -24,13 +24,15 @@
                     </template>
                 </ul>
             </div>
-        </div>
-        <div class="navbar-links-phone" x-show="navOpen">
-            <template x-for="link in links">
-                <li class="navbar-link">
-                    <a :href="link.to" x-text="link.text" @click="toggle"></a>
-                </li>
-            </template>
+            <div>
+                <div class="navbar-links-phone" x-show="navOpen">
+                    <template x-for="link in links">
+                        <li class="navbar-link">
+                            <a :href="link.to" x-text="link.text" @click="toggle"></a>
+                        </li>
+                    </template>
+                </div>
+            </div>
         </div>
     </header>
     <section id="home" class="container">
@@ -71,7 +73,7 @@
                                 <web-icon></web-icon> <small>Visit Website</small>
                             </a>
                         </template>
-                        <a href="index.html" class="button-link icon-with-text">
+                        <a href="index.html#projects" class="button-link icon-with-text">
                             <home-icon></home-icon> <small>Back To Home</small>
                         </a>
                     </div>
