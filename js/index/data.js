@@ -41,6 +41,16 @@ function getProjects() {
     const projects = [
         {
             image: {
+                src: 'img/projects/learn-read.png',
+                alt: 'learn read web app',
+            },
+            title: 'Learn Read',
+            isOpenSource: true,
+            githubLink: 'https://github.com/adikonen/learn-read',
+            webLink: 'https://learn-read.netlify.app'
+        },
+        {
+            image: {
                 src: 'img/projects/landing-page.png',
                 alt: 'landing page web design',
             },
@@ -85,16 +95,6 @@ function getProjects() {
             isOpenSource: true,
             githubLink: 'https://github.com/adikonen/quizcuy',
         },
-        {
-            image: {
-                src: 'img/projects/rent-futsal.png',
-                alt: 'rent futsal field web app',
-            },
-            title: 'Futsalcuy',
-            isOpenSource: true,
-            githubLink: 'https://github.com/adikonen/sewalapanganfutsal',
-        },
-        
     ];
 
     // adding detail link

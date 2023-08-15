@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title x-text="project.title"></title>
+    <title x-text="project?.title"></title>
     <script src="js/component.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/focus@3.x.x/dist/cdn.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
@@ -35,53 +35,65 @@
             </div>
         </div>
     </header>
-    <section id="home" class="container">
-       <h1 class="content-title" style="margin-top: 4rem;">Detail Project</h1>
-       <div class="detail-card wrapper">
-           <div class="detail-card-content">
-               <!-- <div> -->
-                <div class="detail-card-image">
-                    <img :src="project.image.src" :alt="project.image.alt" class="img-fluid"/>
-                </div>
-                <div>
-                    <h2 x-text="project.title" class="detail-title"></h2>
-                    <template x-if="project.isOpenSource">
-                        <div class="badge badge-primary">Open Source</div>
-                    </template>
-                    <template x-if="!project.isOpenSource">
-                        <!-- <span>Closed Source</span>
-                            -->
-                        <div class="badge badge-secondary">Closed Source</div>
-
-                    </template>
-                    <p x-text="project.description"></p>
-                    <span>Technologies</span>
-                    <div class="technologies">
-                        <template x-for="tech in project.technologies">
-                            <div class="badge badge-secondary" x-text="tech"></div>
-                        </template>
+    <template x-if="project">
+        <section id="home" class="container">
+           <h1 class="content-title" style="margin-top: 4rem;">Detail Project</h1>
+           <div class="detail-card wrapper">
+               <div class="detail-card-content">
+                   <!-- <div> -->
+                    <div class="detail-card-image">
+                        <img :src="project?.image.src" :alt="project?.image.alt" class="img-fluid"/>
                     </div>
-                    <br />
-                    <div class="detail-icons">
-                        <template x-if="project.isOpenSource">
-                            <a :href="project.githubLink" class="button-link icon-with-text">
-                                <github-icon></github-icon> <small>View Github</small>
-                            </a>
+                    <div>
+                        <h2 x-text="project?.title" class="detail-title"></h2>
+                        <template x-if="project?.isOpenSource">
+                            <div class="badge badge-primary">Open Source</div>
                         </template>
-                        <template x-if="project.webLink">
-                            <a :href="project.webLink" class="button-link icon-with-text">
-                                <web-icon></web-icon> <small>Visit Website</small>
-                            </a>
+                        <template x-if="!project?.isOpenSource">
+                            <!-- <span>Closed Source</span>
+                                -->
+                            <div class="badge badge-secondary">Closed Source</div>
+    
                         </template>
-                        <a href="index.html#projects" class="button-link icon-with-text">
-                            <home-icon></home-icon> <small>Back To Home</small>
-                        </a>
+                        <p x-text="project?.description"></p>
+                        <span>Technologies</span>
+                        <div class="technologies">
+                            <template x-for="tech in project?.technologies">
+                                <div class="badge badge-secondary" x-text="tech"></div>
+                            </template>
+                        </div>
+                        <br />
+                        <div class="detail-icons">
+                            <template x-if="project?.isOpenSource">
+                                <a :href="project?.githubLink" class="button-link icon-with-text">
+                                    <github-icon></github-icon> <small>View Github</small>
+                                </a>
+                            </template>
+                            <template x-if="project?.webLink">
+                                <a :href="project?.webLink" class="button-link icon-with-text">
+                                    <web-icon></web-icon> <small>Visit Website</small>
+                                </a>
+                            </template>
+                            <a href="index.html#projects" class="button-link icon-with-text">
+                                <home-icon></home-icon> <small>Back To Home</small>
+                            </a>
+                        </div>
                     </div>
+                    <!-- </div> -->
                 </div>
-                <!-- </div> -->
+            </div>
+        </section>
+    </template>
+    <template x-if="!project">
+        <div class="container" style="margin-top: 3rem;">
+            <div class="wrapper content-title">
+                <h2>Project Not Found</h2>
+                <a href="index.html" class="button-link">
+                    <button class="btn btn-primary">Back To Home</button>
+                </a>
             </div>
         </div>
-    </section>
+    </template>
     
     <script src="js/data.js"></script>
     <script src="js/detail/data.js"></script>

@@ -48,18 +48,19 @@ function getProjectBySlug(value = null) {
         },
         {
             image: {
-                src: 'img/projects/rent-futsal.png',
-                alt: 'rent futsal field web app',
+                src: 'img/projects/learn-read.png',
+                alt: 'learn read web app',
             },
-            title: 'Futsalcuy',
+            title: 'Learn Read',
             isOpenSource: true,
-            githubLink: 'https://github.com/adikonen/sewalapanganfutsal',
-            description: `Futsalcuy is rent management system. Admin able to set field is empty or full, set schedule futsal field. Verify book from user and doing some CRUD. The User able to see information about futsal fields and request booking to admin.`,
+            githubLink: 'https://github.com/adikonen/learn-read',
+            webLink: 'https://learn-read.netlify.app',
+            description: `Purpose of this project is help my little sister to read objects in english or indonesian.`,
             technologies: [
-                'PHP',
-                'Bootstrap',
-                'MySQL',
-                'Sweet Alert',
+                'Vue',
+                'Typescript',
+                'Supabase',
+                'TailwindCSS',
             ],
         },
         {
